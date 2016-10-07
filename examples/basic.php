@@ -1,14 +1,11 @@
-# email_library
-Easy Email Library based on PHPMailer
+<?php
 
-Example How To Use:
-
-```php
 // Autoload files using Composer autoload
 require_once __DIR__ . '/../vendor/autoload.php';
 
 // Email Structure Instance with Template Path and Optional Data
 $email = new \Xcytek\EmailLibrary\Email('templates/basic.php', [
+    // Optional Data for the template
     'author'  => 'Alex Acosta',
     'email'   => 'alexcytek@gmail.com',
     'twitter' => '@xcytek',
@@ -36,4 +33,3 @@ if ($emailSender->send($email)) {
 } else {
     echo 'Mail cannot be delivered to ' . $email->getData()['email'];
 }
-```

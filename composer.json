@@ -1,0 +1,21 @@
+{
+    "name": "xcytek/email_library",
+    "description": "Email Library based on PHPMailer",
+    "type": "library",
+    "require": {
+        "phpmailer/phpmailer": "~5.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Acosta",
+            "email": "alexcytek@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Xcytek\\EmailLibrary\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
