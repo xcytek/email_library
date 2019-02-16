@@ -40,30 +40,6 @@ class Email
     private $html;
 
     /**
-     * Configuration Params
-     *
-     * @var
-     */
-    private $config = [
-        'host'          => 'smtp.gmail.com',
-        'smtp_auth'     => true,
-        'username'      => 'your_email_account',
-        'password'      => 'you_password',
-        'who_sent'      => 'Xcytek Easy Email Library',
-        'smtp_secure'   => 'ssl',
-        'port'          => 465,
-        'charset'       => 'UTF-8',
-        'is_html'       => true,
-        'smtp_options'  => [
-            'ssl' => [
-                'verify_peer'       => false,
-                'verify_peer_name'  => false,
-                'allow_self_signed' => true,
-            ]
-        ]
-    ];
-
-    /**
      * Email constructor.
      *
      * @param $template
@@ -94,10 +70,14 @@ class Email
      * Set Use data
      *
      * @param array $use
+     *
+     * @return Email
      */
     public function setUse(array $use)
     {
         $this->use = $use;
+
+        return $this;
     }
 
     /**
@@ -135,29 +115,6 @@ class Email
     }
 
     /**
-     * Set Basic Configurations
-     *
-     * @param \PHPMailer $mail
-     */
-    public function setConfigurationParams(\PHPMailer &$mail)
-    {
-        //$mail->SMTPDebug = 1;
-        $mail->isSMTP();
-        $mail->isHTML($this->config['is_html']);
-
-        $mail->Host         = $this->config['host'];
-        $mail->SMTPAuth     = $this->config['smtp_auth'];
-        $mail->Username     = $this->config['username'];
-        $mail->Password     = $this->config['password'];
-        $mail->SMTPSecure   = $this->config['smtp_secure'];
-        $mail->Port         = $this->config['port'];
-        $mail->CharSet      = $this->config['charset'];
-        $mail->SMTPOptions  = $this->config['smtp_options'];
-
-        $mail->setFrom($this->config['username'], $this->config['who_sent']);
-    }
-
-    /**
      * Basic method to convert HTML code into HTML string
      *
      * @param            $template
@@ -174,7 +131,7 @@ class Email
         if (! is_null($data)) {
             extract($data);
         }
-        // Inlude HTML Template
+        // Include HTML Template
         include($template);
 
         // Get Template String
