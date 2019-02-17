@@ -1,4 +1,4 @@
-# email_library
+# Email Library
 Easy Email Library based on PHPMailer
 
 Example How To Use:
@@ -39,8 +39,8 @@ $email = new \Xcytek\EmailLibrary\Email('templates/basic.php', [
 $email->setUse([
     'subject' => 'Xcytek Easy Email Library',
 
-    // Can add more than one
     'to' => [
+        // Can add more than one
         [
             'email' => 'alexcytek@gmail.com',
             'name'  => 'Alex Acosta',
@@ -48,8 +48,8 @@ $email->setUse([
     ]
 ]);
 
-// Email Sender Instance with 2 params (or no params here), $email and configuration.
-$emailSender = new \Xcytek\EmailLibrary\EmailSender($email, $configurationFile);
+// Email Sender Instance with 2 params, $email and configuration.
+$emailSender = new \Xcytek\EmailLibrary\EmailSender($email, $configurationArray);
 
 // Try sending the email.
 if ($emailSender->send()) {
