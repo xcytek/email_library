@@ -75,7 +75,9 @@ class Email
         $this->data     = $data;
 
         // Get HTML String
-        $this->html = $this->renderViewIntoHtml($this->template, $this->data);
+        if ($template !== '' && is_null($template) === false) {
+            $this->html = $this->renderViewIntoHtml($this->template, $this->data);
+        }
     }
 
     /**
@@ -88,6 +90,11 @@ class Email
     {
         $this->template = $template;
         $this->data     = $data;
+
+        // Get HTML String
+        if ($template !== '' && is_null($template) === false) {
+            $this->html = $this->renderViewIntoHtml($this->template, $this->data);
+        }
     }
 
     /**
