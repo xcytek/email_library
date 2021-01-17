@@ -14,6 +14,11 @@ $email = new \Xcytek\EmailLibrary\Email('templates/basic.php', [
     'twitter' => '@xcytek',
 ]);
 
+// Set SMTP account params
+$email->config['username'] = 'your@email.com';
+$email->config['password'] = 'your_password';
+$email->config['who_sent'] = 'Who is sending';
+
 // Use data necessary (MANDATORY) to send the email
 $email->setUse([
     'subject' => 'Xcytek Easy Email Library',

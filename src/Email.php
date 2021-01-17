@@ -44,7 +44,7 @@ class Email
      *
      * @var
      */
-    private $config = [
+    public $config = [
         'host'          => 'smtp.gmail.com',
         'smtp_auth'     => true,
         'username'      => 'your_email_account',
